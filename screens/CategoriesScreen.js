@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
 	itemColors: {
 		flex: 1,
 		justifyContent: 'flex-end',
-		alignItems: 'flex-end',
+
 		padding: 15,
 		borderRadius: 10,
 		shadowColor: 'black',
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
 	},
 	title: {
 		fontFamily: 'open-sans-bold',
-		fontSize: 22,
+		fontSize: 21,
 	},
 });
 
