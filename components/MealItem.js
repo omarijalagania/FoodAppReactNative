@@ -1,6 +1,12 @@
 import React from 'react';
 
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import {
+	View,
+	Text,
+	StyleSheet,
+	TouchableOpacity,
+	ImageBackground,
+} from 'react-native';
 
 const MealItem = (props) => {
 	return (
@@ -8,12 +14,19 @@ const MealItem = (props) => {
 			<TouchableOpacity onPress={props.onSelectMeal}>
 				<View>
 					<View style={{ ...styles.mealRow, ...styles.mealHeader }}>
-						<Text>{props.itemData.item.title}</Text>
+						<ImageBackground
+							source={{ uri: props.itemData.item.imageUrl }}
+							style={styles.bgImage}
+						>
+							<Text style={styles.title} numberOfLines={1}>
+								{props.itemData.item.title}
+							</Text>
+						</ImageBackground>
 					</View>
 					<View style={{ ...styles.mealRow, ...styles.mealDetail }}>
 						<Text>{props.duration}m</Text>
-						<Text>{props.affordability}</Text>
-						<Text>{props.complexity}</Text>
+						<Text>{props.affordability.toUpperCase()}</Text>
+						<Text>{props.complexity.toUpperCase()}</Text>
 					</View>
 				</View>
 			</TouchableOpacity>
@@ -32,11 +45,27 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 	},
 	mealHeader: {
-		height: '90%',
+		height: '85%',
 	},
 	mealDetail: {
 		paddingHorizontal: 10,
 		justifyContent: 'space-between',
+		alignItems: 'center',
+		height: '15%',
+	},
+	bgImage: {
+		width: '100%',
+		height: '100%',
+		justifyContent: 'flex-end',
+	},
+	title: {
+		fontFamily: 'open-sans-bold',
+		fontSize: 20,
+		color: 'white',
+		backgroundColor: 'rgba(0,0,0,0.5)',
+		paddingHorizontal: 5,
+		paddingVertical: 12,
+		textAlign: 'center',
 	},
 });
 
